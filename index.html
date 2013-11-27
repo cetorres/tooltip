@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Tooltip</title>
+  <meta name="author" content="Carlos Eugênio Torres" />
+  <meta name="keywords" content="javascript dynamic tooltip" />
+  <meta name="description" content="A Javascript dynamic tooltip that supports HTML tags." />
+  <script type="text/javascript" src="Tooltip.js"></script>
+  <link href="Tooltip.css" rel="stylesheet" type="text/css" />
+  <style>
+	body
+	{
+		font-family: Verdana, Arial;
+		font-size: 14px;
+	}
+	#copyright
+	{
+		font-size: 9px;
+	}
+  </style>
+ </head>
+ <body>
+	<h3>Javascript Tooltip</h3> 
+	<h4>A dynamic Javascript tooltip that supports HTML tags.</h4>
+	<h5>by <img align="absmiddle" src="http://cetorres.com/imagemail/data/imagemail_20100920_1285014734.png" alt="ImagEmail" title="ImagEmail"></h5>
+	Demo:<br/>
+	Roll you mouse over <a href="" onmouseover="Tooltip.show(event, 'This is the text of the tooltip.<br>The tooltip box can be formated using the included CSS.<br>This text can have HTML tags inside, like <b>bold</b> or <i>italic</i> for example.');">this link</a> to view a tooltip.<br/>
+	This another example with an <a href="" onmouseover="Tooltip.show(event, '<img src=\'http://carloseugeniotorres.com/imagens/pdf_ico.gif\' align=\'absmiddle\'>&nbsp;Here we have an image inside this tooltip.');">image</a> inside the tooltip.
+	<br/><br/>
+	HTML code:<br/>
+	<textarea rows="3" cols="70" style="width:600px;height:80px;"><a href="" onmouseover="Tooltip.show(event, 'This is the text of the tooltip.<br>The tooltip box can be formated using the included CSS.<br>This text can have HTML tags inside, like <b>bold</b> or <i>italic</i> for example.');">this link</a></textarea><br/><br/>
+	Tooltip.css:<br/>
+	<iframe src="Tooltip.css.txt" border="1" width="600px" height="150px"></iframe>
+	<br/><br/>
+	Tooltip.js:<br/>
+	<iframe src="Tooltip.js.txt" border="1" width="600px" height="200px"></iframe>
+	<br/><br/>
+	<div id="copyright">&copy; 2008 Carlos Eugênio Torres</div>
+ </body>
+</html>

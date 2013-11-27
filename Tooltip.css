@@ -1,0 +1,10 @@
+.tooltipBox
+{
+	border: 1px solid #000000;
+	background: #FFFFDD;
+	z-index: 100;
+	position: absolute;
+	padding: 2px;
+	font-size: 8.25pt;
+	font-family: Microsoft Sans Serif, Tahoma, Verdana;
+}

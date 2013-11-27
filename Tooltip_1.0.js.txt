@@ -1,0 +1,86 @@
+/* 
+Tooltip object 
+Author: Carlos Eugênio Torres
+Email: carloseugeniotorres@gmail.com
+Date: 25/02/2008
+Version: 1.0
+*/
+var Tooltip =
+{
+	_tooltipBox: null,
+	_tooltipTop: 0,
+	_tooltipLeft: 0,
+	_tooltipOffsetTop: 20,
+	_isIE: document.all,
+	
+	create: function()
+	{
+		try
+		{
+			this._tooltipBox = document.createElement("div");
+			this._tooltipBox.id = "tooltipBox";
+			this._tooltipBox.className = "tooltipBox";
+			this._tooltipBox.style.visibility = "hidden";
+			this._tooltipBox.style.top = "0px";
+			this._tooltipBox.style.left = "0px";
+			document.body.appendChild(this._tooltipBox);
+		}
+		catch(e)
+		{
+			alert("Error on trying to create tooltip box:\n" + e);
+		}
+	},
+	
+	cursorUpdate: function(evt)
+	{
+		this.getMouseTopLeft(evt);
+		if (this._tooltipBox)
+		{
+			this._tooltipBox.style.top = this._tooltipTop + "px";
+			this._tooltipBox.style.left = this._tooltipLeft + "px";
+		}
+	},
+	
+	show: function(evt, text)
+	{
+		if (!this._tooltipBox)
+			this.create();
+	
+		try
+		{
+			this.cursorUpdate(evt);
+			this._tooltipBox.innerHTML = text;
+			
+			this._tooltipBox.style.visibility = "visible";
+			return true;
+		}
+		catch(e)
+		{
+			alert("Error on trying to show tooltip:\n" + e);
+			return false;
+		}
+	},
+	
+	hide: function()
+	{
+		if (this._tooltipBox)
+			this._tooltipBox.style.visibility = "hidden";
+	},
+	
+	getMouseTopLeft: function(evt)
+	{
+		if (this._isIE) 
+		{ 
+			this._tooltipLeft = event.clientX + document.body.scrollLeft;
+			this._tooltipTop = event.clientY + document.body.scrollTop + this._tooltipOffsetTop;
+		} 
+		else 
+		{
+			this._tooltipLeft = evt.pageX;
+			this._tooltipTop = evt.pageY + this._tooltipOffsetTop;
+		}  
+	  
+		if (this._tooltipLeft < 0) this._tooltipLeft = 0;
+		if (this._tooltipTop < 0) this._tooltipTop = 0;
+	}
+}
